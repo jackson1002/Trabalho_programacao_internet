@@ -1,3 +1,22 @@
+const fs = require('fs');
+const path = require('path');
+
+const usersPath = path.join(__dirname, '../routes/usuarios.json');
+
+const readUsers = () => {
+    if (!fs.existsSync(usersPath)) {
+        fs.writeFileSync(usersPath, JSON.stringify([]));
+    }
+    const data = fs.readFileSync(usersPath);
+    return JSON.parse(data);
+};
+
+const saveUsers = (users) => {
+    console.log('Salvando usuários:', users);
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+};
+
+
 const login = (req, res) => {
     const {email, senha } = req.body;
 
@@ -6,9 +25,6 @@ const login = (req, res) => {
     }
     return res.status(401).json({message: 'Credenciais Inválidas'})
 }
-
-module.exports = {login}
-
 
 const cadastro = (req, res) => {
     if (!email || !senha){
@@ -28,5 +44,5 @@ const cadastro = (req, res) => {
 
     return res.status(201).json({ message: "Usuario cadastrado com sucesso!"})
 };
-module.exports = {cadastro}
+module.exports = {cadastro,login}
 /*fazer rota pra login  de usuário pra autenticar.Conectar com nosso site e-commerce do ano passado*/ 
