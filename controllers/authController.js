@@ -9,4 +9,24 @@ const login = (req, res) => {
 
 module.exports = {login}
 
+
+const cadastro = (req, res) => {
+    if (!email || !senha){
+        return res.status(400).json({ message: "Email e senha são obrigatórios." });
+    }
+
+    const users = readUsers();
+
+    const userExists = users.find(user => user.email === email);
+
+    if(userExist){
+        return res.status(409).json({ message: " O email já está cadastrado"})
+    }
+
+    users.push({ email, senha})
+    saveUsers(users);
+
+    return res.status(201).json({ message: "Usuario cadastrado com sucesso!"})
+};
+module.exports = {cadastro}
 /*fazer rota pra login  de usuário pra autenticar.Conectar com nosso site e-commerce do ano passado*/ 
