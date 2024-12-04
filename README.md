@@ -1,2 +1,2 @@
 Usamos o INSOMNIA para testar. 
-Dupla: Jackson Lucas e Maria Eduarda Lucas
+Grupo: Elysson Hiago, Jackson Lucas, Maria Eduarda Augusta e Maria Eduarda Lucas
