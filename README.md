@@ -1,2 +1,2 @@
-Usamos o INSOMIA para testar. 
+Usamos o INSOMNIA para testar. 
 Dupla: Jackson Lucas e Maria Eduarda Lucas
