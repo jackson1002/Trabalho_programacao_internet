@@ -44,7 +44,7 @@ const login = (req, res) => {
 const cadastro = (req, res) => {
     const {email, senha } = req.body;
     if (!email || !senha){
-        return res.status(400).json({ message: "Email e senha são obrigatórios." });
+        return res.status(400).json({ message: "Email e senha são obrigatórios!" });
     }
 
 
@@ -55,7 +55,7 @@ const cadastro = (req, res) => {
 
 
     if(userExists){
-        return res.status(409).json({ message: " O email já está cadastrado"})
+        return res.status(409).json({ message: " O email já está cadastrado!"})
     }
 
 
